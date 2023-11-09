@@ -6,7 +6,11 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 
-export default function TopBar({onClick}) {
+interface TopBarProps {
+  onClick: () => void;
+}
+
+export default function TopBar({onClick}:TopBarProps) {
   return (
     <Box sx={{ display: 'flex' }}>
       <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
