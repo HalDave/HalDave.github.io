@@ -20,6 +20,7 @@ jobs:
           cd site
           npm ci
           npm run build
+          ls
       - name: CompressFiles
         uses: stefh/ghaction-CompressFiles@v2
         with:
