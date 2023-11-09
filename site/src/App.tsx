@@ -10,7 +10,6 @@ import Work from './Content/Work';
 import Hobbies from './Content/Hobbies';
 import About from './Content/About';
 import { Routes, Route} from "react-router-dom"
-import Box from '@mui/material/Box';
 import styled from '@emotion/styled';
 import useScreenSize from './Services/ScreenSize';
 
