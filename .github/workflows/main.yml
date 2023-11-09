@@ -21,7 +21,7 @@ jobs:
           npm ci
           npm run build
           npm install -g gzip-cli
-          tar -zcvf github-pages.tar.gz build/
+          gzip ./build/*.js -k -9
       - name: Check folder
         run: |
           ls
