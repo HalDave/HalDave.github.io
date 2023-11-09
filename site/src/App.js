@@ -1,18 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import TopBar from './UI/TopBar';
+import Sidebar from './UI/SideBar';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import { useThemeDetector } from './Services/ThemeDetector';
+
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
+
+const lightTheme = createTheme({
+  palette: {
+    mode: 'light',
+  },
+});
 
 function App() {
+  const isDarkTheme = useThemeDetector();
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>
-          Haldave's Github page
-        </h1>
-        <p>
-          Created as part of Sunweb's TechLab #11
-        </p>
-      </header>
+      <ThemeProvider theme={isDarkTheme ? darkTheme: lightTheme}>
+        <CssBaseline />
+        <TopBar />
+        <Sidebar />
+      </ThemeProvider>
     </div>
   );
 }
