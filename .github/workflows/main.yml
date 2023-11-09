@@ -20,13 +20,11 @@ jobs:
           cd site
           npm ci
           npm run build
-          ls
-      - name: CompressFiles
-        uses: stefh/ghaction-CompressFiles@v2
+      - name: Upload Gzip Artifact
+        uses: nmerget/upload-gzip-artifact@v1.0.0
         with:
+          name: github-pages
           path: build
-          extensions: '.js,.css,.html'
-          tools: 'gzip'
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v2.0.0
         with:
