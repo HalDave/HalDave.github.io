@@ -24,6 +24,7 @@ jobs:
           gzip ./build/*.js -k -9
       - name: Check folder
         run: |
+          cd site
           ls
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v2.0.0
