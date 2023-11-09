@@ -15,5 +15,6 @@ jobs:
 
       - name: Install and Deploy
         run: |
+          cd site
           npm ci
           npm run deploy
