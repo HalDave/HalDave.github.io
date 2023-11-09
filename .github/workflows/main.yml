@@ -20,6 +20,10 @@ jobs:
           cd site
           npm ci
           npm run build
+          npm install -g gzip-cli
+          ls
+          gzip -r build
+          ls
       - name: Upload Gzip Artifact
         uses: nmerget/upload-gzip-artifact@v1.0.0
         with:
