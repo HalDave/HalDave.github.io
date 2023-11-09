@@ -16,6 +16,10 @@ import useScreenSize from './Services/ScreenSize';
 
 const minScreenWidth = 600;
 
+interface ContentContainerProps {
+  $isMobile?: boolean;
+}
+
 const darkTheme = createTheme({
   palette: {
     mode: 'dark',
@@ -43,7 +47,7 @@ function App() {
       <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
         <CssBaseline />
         <TopBar onClick={handleDrawerToggle}/>
-        <Sidebar screenWidth={screenSize.width} mobileOpen={mobileOpen} isMobile={isMobile} onClose={handleDrawerToggle}/>
+        <Sidebar mobileOpen={mobileOpen} isMobile={isMobile} onClose={handleDrawerToggle}/>
         <ContentContainer $isMobile={isMobile}>
           <Routes>
             <Route path="/" element={<Dashboard />} />
@@ -59,7 +63,7 @@ function App() {
 
 export default App;
 
-const ContentContainer = styled(Box)`
+const ContentContainer = styled.div<ContentContainerProps>`
   margin-top: 64px;
   ${({ $isMobile }) => !$isMobile ? `
     margin-left: 240px;

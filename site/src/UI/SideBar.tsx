@@ -13,7 +13,13 @@ import { getPage } from '../Services/PageService';
 
 const drawerWidth = 240;
 
-export default function SideBar({isMobile, mobileOpen, onClose}) {
+interface SideBarProps {
+  isMobile: boolean;
+  mobileOpen: boolean;
+  onClose: () => void;
+}
+
+export default function SideBar({isMobile, mobileOpen, onClose}: SideBarProps) {
   const drawerVariant = isMobile ? "temporary" : "permanent";
 
   return (

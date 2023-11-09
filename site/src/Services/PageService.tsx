@@ -4,7 +4,11 @@ import VideogameAssetIcon from '@mui/icons-material/VideogameAsset';
 import InfoIcon from '@mui/icons-material/Info';
 import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
 
-export const getPage = (pageName) => {
+export const getPage = (pageName:string):{
+  icon: JSX.Element;
+  link: string;
+  title: string;
+} => {
   switch (pageName) {
     case 'Home':
       return { icon: <HouseIcon />, link: '/' , title: 'Home'};
