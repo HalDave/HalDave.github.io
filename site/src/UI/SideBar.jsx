@@ -8,28 +8,10 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import HouseIcon from '@mui/icons-material/House';
-import WorkIcon from '@mui/icons-material/Work';
-import VideogameAssetIcon from '@mui/icons-material/VideogameAsset';
-import InfoIcon from '@mui/icons-material/Info';
-import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
+import { Link } from "react-router-dom";
+import { getPage } from '../Services/PageService';
 
 const drawerWidth = 240;
-
-const getIcon = (pageName)=>{
-  switch (pageName) {
-    case 'Home':
-      return <HouseIcon />;
-    case 'Work':
-      return <WorkIcon />;
-    case 'Hobbies':
-      return <VideogameAssetIcon />;
-    case 'About me':
-      return <InfoIcon />;
-    default:
-      return <QuestionMarkIcon />;
-  }
-}
 
 export default function SideBar() {
   return (
@@ -44,16 +26,17 @@ export default function SideBar() {
       <Toolbar />
       <Box sx={{ overflow: 'auto' }}>
         <List>
-          {['Home', 'Work', 'Hobbies', 'About me'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {getIcon(text)}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
+          {['Home', 'Work', 'Hobbies', 'About me'].map((text, index) =>
+            (
+              <ListItem key={text} disablePadding>
+                <ListItemButton component={Link} to={getPage(text).link}>
+                  <ListItemIcon>
+                    {getPage(text).icon}
+                  </ListItemIcon>
+                  <ListItemText primary={text} />
+                </ListItemButton>
+              </ListItem>
+            ))}
         </List>
         <Divider />
       </Box>

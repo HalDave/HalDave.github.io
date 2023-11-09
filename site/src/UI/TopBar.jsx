@@ -15,7 +15,7 @@ export default function TopBar() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" color="inherit" component="div">
-            Home
+            HalDave's
           </Typography>
         </Toolbar>
       </AppBar>
