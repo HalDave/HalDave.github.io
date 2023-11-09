@@ -13,15 +13,19 @@ import { getPage } from '../Services/PageService';
 
 const drawerWidth = 240;
 
-export default function SideBar() {
+export default function SideBar({isMobile, mobileOpen, onClose}) {
+  const drawerVariant = isMobile ? "temporary" : "permanent";
+
   return (
     <Drawer
-      variant="permanent"
+      variant={drawerVariant}
       sx={{
         width: drawerWidth,
         flexShrink: 0,
         [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box' },
       }}
+      open={mobileOpen}
+      onClose={onClose}
     >
       <Toolbar />
       <Box sx={{ overflow: 'auto' }}>
