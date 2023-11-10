@@ -15,7 +15,7 @@ interface ItemDataProps {
 
 const GridItem = ({ item }: { item: ItemProps }) => {
   return (
-    <Grid item xs={9} sm={6} md={3} lg={2} sx={{ maxWidth: "480px", minWidth: "480px" }}>
+    <Grid item xs={9} sm={6} md={4} lg={3} sx={{ maxWidth: "480px", minWidth: "480px" }}>
       <Card>
         <CardHeader title={item.data.title} />
         <CardMedia component="img" height="250" image={item.data.image} alt={item.data.title} sx={{objectFit: "contain"}} />
