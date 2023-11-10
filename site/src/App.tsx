@@ -12,6 +12,7 @@ import About from './Content/About';
 import { Routes, Route} from "react-router-dom"
 import styled from '@emotion/styled';
 import useScreenSize from './Services/ScreenSize';
+import BottomBar from './UI/BottomBar';
 
 const minScreenWidth = 600;
 
@@ -55,6 +56,7 @@ function App() {
             <Route path="about" element={<About />} />
           </Routes>
         </ContentContainer>
+        <BottomBar />
       </ThemeProvider>
     </div>
   );
