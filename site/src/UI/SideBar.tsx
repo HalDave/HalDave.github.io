@@ -42,7 +42,7 @@ export default function SideBar({isMobile, mobileOpen, onClose}: SideBarProps) {
                   <ListItemIcon>
                     {getPage(text).icon}
                   </ListItemIcon>
-                  <ListItemText primary={text} />
+                  <ListItemText primary={getPage(text).title} />
                 </ListItemButton>
               </ListItem>
             ))}

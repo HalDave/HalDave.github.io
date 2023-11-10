@@ -12,13 +12,9 @@ const Dashboard = () => {
     (async () => {
       try {
         const response = await fetch(URI)
-
         if (!response.ok) return
-
         const results = await response.json()
-
-        console.log(results)
-        setitems(results.results)
+        setitems(results)
       } catch (error) {
         console.log(error)
       }
@@ -32,7 +28,7 @@ const Dashboard = () => {
         justifyContent="center"
         sx={{ paddingRight: 6, paddingLeft: 6 }}>
         {items && items.map((item: any) => (
-          <GridItem />
+          <GridItem key={item.id} item={item}/>
         ))}
       </Grid>
     </div>
