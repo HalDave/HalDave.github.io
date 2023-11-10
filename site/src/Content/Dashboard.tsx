@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Grid } from '@mui/material';
 import GridItem from '../UI/GridItem';
 
-const URI = 'http://haldave-github-pages-webapp.azurewebsites.net/Items/Books'
+const URI = 'https://haldave-github-pages-webapp.azurewebsites.net/Items/Books'
 
 
 const Dashboard = () => {
