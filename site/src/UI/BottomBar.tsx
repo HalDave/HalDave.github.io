@@ -5,7 +5,8 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Image from './Image';
 
-export default function BottomBar() {
+export default function BottomBar({isDarkTheme}: {isDarkTheme: boolean}) {
+  console.log(isDarkTheme)
   return (
     <Box sx={{ display: 'flex' }}>
       <AppBar position="fixed" color="primary" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1, top: 'auto', bottom: 0, paddingBottom: 1 }}>
@@ -23,12 +24,12 @@ export default function BottomBar() {
             <Typography variant="body2" color="inherit" component="div">
               This site uses:
             </Typography>
-            <Image src={'/ReactLogo.png'} alt={"React"} title={"React"} />
-            <Image src={'/TsLogo.png'} alt={"TypeScript"} title={"TypeScript"} />
-            <Image src={'/MaterialUILogo.png'} alt={"MaterialUI"} title={"MaterialUI"} />
-            <Image src={'/NodeJSLogo.png'} alt={"Nodejs"} title={"Nodejs"} />
-            <Image src={'/AzureLogo.png'} alt={"Azure"} title={"Azure"} />
-            <Image src={'/CosmosdbLogo.png'} alt={"Cosmosdb"} title={"Cosmosdb"} />
+            <Image isDarkTheme src={'/ReactLogo.png'} alt={"React"} title={"React"} />
+            <Image isDarkTheme src={'/TsLogo.png'} alt={"TypeScript"} title={"TypeScript"} />
+            <Image isDarkTheme src={'/MaterialUILogo.png'} alt={"MaterialUI"} title={"MaterialUI"} />
+            <Image isDarkTheme src={'/NodeJSLogo.png'} alt={"Nodejs"} title={"Nodejs"} />
+            <Image isDarkTheme src={'/AzureLogo.png'} alt={"Azure"} title={"Azure"} />
+            <Image isDarkTheme src={'/CosmosdbLogo.png'} alt={"Cosmosdb"} title={"Cosmosdb"} />
           </Box>
         </Toolbar>
       </AppBar>

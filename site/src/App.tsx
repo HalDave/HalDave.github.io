@@ -56,7 +56,7 @@ function App() {
             <Route path="about" element={<About />} />
           </Routes>
         </ContentContainer>
-        <BottomBar />
+        <BottomBar isDarkTheme={isDarkTheme}/>
       </ThemeProvider>
     </div>
   );
