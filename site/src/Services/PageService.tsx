@@ -1,8 +1,8 @@
 import HouseIcon from '@mui/icons-material/House';
-import WorkIcon from '@mui/icons-material/Work';
-import VideogameAssetIcon from '@mui/icons-material/VideogameAsset';
 import InfoIcon from '@mui/icons-material/Info';
 import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
+import VideogameAssetIcon from '@mui/icons-material/VideogameAsset';
+import WorkIcon from '@mui/icons-material/Work';
 
 export const getPage = (pageName:string):{
   icon: JSX.Element;
@@ -11,7 +11,7 @@ export const getPage = (pageName:string):{
 } => {
   switch (pageName) {
     case 'Home':
-      return { icon: <HouseIcon />, link: '/' , title: 'Home'};
+      return { icon: <HouseIcon />, link: '/' , title: 'Dashboard'};
     case 'Work':
       return { icon: <WorkIcon />, link: 'work', title: 'Work' };
     case 'Hobbies':
