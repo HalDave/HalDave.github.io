@@ -32,7 +32,7 @@ const GridItem = ({ item }: { item: ItemProps }) => {
   return (
     <Grid item xs={12} sm={12} md={12} lg={12} sx={{ width: '100%'}}>
       <Card>
-        <CardActions disableSpacing 
+        <StyledHeader disableSpacing 
             onClick={handleExpandClick}>
           <IconButton aria-label="add to favorites">
             <LibraryBooksIcon />
@@ -45,7 +45,7 @@ const GridItem = ({ item }: { item: ItemProps }) => {
           >
             <ExpandMoreIcon />
           </ExpandMore>
-        </CardActions>
+        </StyledHeader>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <CardHeader title={item.data.title} />
           <CardMedia component="img" height="250" image={item.data.image} alt={item.data.title} sx={{ objectFit: "contain" }} />
