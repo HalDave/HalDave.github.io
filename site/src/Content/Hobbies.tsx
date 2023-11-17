@@ -36,7 +36,7 @@ const Hobbies = () => {
     <div>
       <h1>Hobbies</h1>
       <h2>Books</h2>
-      <Grid container columnSpacing={{ xs: 1, sm: 2, md: 6, lg: 12 }} direction="row"
+      <Grid container columnSpacing={1} direction="row"
         alignItems="center"
         justifyContent="center"
         sx={{ paddingRight: 6, paddingLeft: 6 }}>
@@ -45,7 +45,7 @@ const Hobbies = () => {
         ))}
       </Grid>
       <h2>Movies</h2>
-      <Grid container columnSpacing={{ xs: 1, sm: 2, md: 6, lg: 12 }} direction="row"
+      <Grid container columnSpacing={1} direction="row"
         alignItems="center"
         justifyContent="center"
         sx={{ paddingRight: 6, paddingLeft: 6 }}>
