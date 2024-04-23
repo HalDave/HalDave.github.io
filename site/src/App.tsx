@@ -1,18 +1,18 @@
-import * as React from 'react';
-import './App.css';
-import TopBar from './UI/TopBar';
-import Sidebar from './UI/SideBar';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import { useThemeDetector } from './Services/ThemeDetector';
-import Dashboard from './Content/Dashboard';
-import Work from './Content/Work';
-import Hobbies from './Content/Hobbies';
-import About from './Content/About';
-import { Routes, Route} from "react-router-dom"
-import styled from '@emotion/styled';
-import useScreenSize from './Services/ScreenSize';
-import BottomBar from './UI/BottomBar';
+import * as React from "react";
+import "./App.css";
+import TopBar from "./UI/TopBar";
+import Sidebar from "./UI/SideBar";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import { useThemeDetector } from "./Services/ThemeDetector";
+import Dashboard from "./Content/Dashboard";
+import Work from "./Content/Work";
+import Hobbies from "./Content/Hobbies";
+import About from "./Content/About";
+import { Routes, Route } from "react-router-dom";
+import styled from "@emotion/styled";
+import useScreenSize from "./Services/ScreenSize";
+import BottomBar from "./UI/BottomBar";
 
 const minScreenWidth = 600;
 
@@ -22,13 +22,13 @@ interface ContentContainerProps {
 
 const darkTheme = createTheme({
   palette: {
-    mode: 'dark',
+    mode: "dark",
   },
 });
 
 const lightTheme = createTheme({
   palette: {
-    mode: 'light',
+    mode: "light",
   },
 });
 
@@ -46,8 +46,12 @@ function App() {
     <div className="App">
       <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
         <CssBaseline />
-        <TopBar onClick={handleDrawerToggle}/>
-        <Sidebar mobileOpen={mobileOpen} isMobile={isMobile} onClose={handleDrawerToggle}/>
+        <TopBar onClick={handleDrawerToggle} />
+        <Sidebar
+          mobileOpen={mobileOpen}
+          isMobile={isMobile}
+          onClose={handleDrawerToggle}
+        />
         <ContentContainer $isMobile={isMobile}>
           <Routes>
             <Route path="/" element={<Dashboard />} />
@@ -56,7 +60,7 @@ function App() {
             <Route path="about" element={<About />} />
           </Routes>
         </ContentContainer>
-        <BottomBar isDarkTheme={isDarkTheme}/>
+        <BottomBar isDarkTheme={isDarkTheme} />
       </ThemeProvider>
     </div>
   );
@@ -66,7 +70,11 @@ export default App;
 
 const ContentContainer = styled.div<ContentContainerProps>`
   margin-top: 64px;
-  ${({ $isMobile }) => !$isMobile ? `
+  margin-bottom: 64px;
+  ${({ $isMobile }) =>
+    !$isMobile
+      ? `
     margin-left: 240px;
-  ` : ''}
+  `
+      : ""}
 `;

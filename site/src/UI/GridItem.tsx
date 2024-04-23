@@ -40,12 +40,12 @@ const GridItem = ({ item }: { item: ItemProps }) => {
   };
   return (
     <Grid item xs={12} sm={12} md={12} lg={12} sx={{ width: "100%" }}>
-      <Card>
+      <StyledCard>
         <StyledHeader disableSpacing onClick={handleExpandClick}>
           <IconButton aria-label="add to favorites">
             <LibraryBooksIcon />
           </IconButton>
-          <CardHeader title={item.data.title} />
+          <StyledTitle title={item.data.title} />
           <ExpandMore
             expand={expanded}
             aria-expanded={expanded}
@@ -83,11 +83,21 @@ const GridItem = ({ item }: { item: ItemProps }) => {
             </Grid>
           </Grid>
         </Collapse>
-      </Card>
+      </StyledCard>
     </Grid>
   );
 };
 const StyledHeader = styled(CardActions)`
   cursor: pointer;
 `;
+
+const StyledTitle = styled(CardHeader)`
+  padding: 0;
+`;
+
+const StyledCard = styled(Card)`
+  padding-top: 16px;
+  padding-bottom: 16px;
+`;
+
 export default GridItem;
