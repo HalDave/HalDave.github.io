@@ -13,6 +13,8 @@ import { Routes, Route } from "react-router-dom";
 import styled from "@emotion/styled";
 import useScreenSize from "./Services/ScreenSize";
 import BottomBar from "./UI/BottomBar";
+import { QueryClientProvider } from "react-query";
+import { itemsQueryClient } from "./Services/api/ItemsQueryClient";
 
 interface ContentContainerProps {
   $isMobile?: boolean;
@@ -41,24 +43,26 @@ function App() {
 
   return (
     <div className="App">
-      <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
-        <CssBaseline />
-        <TopBar onClick={handleDrawerToggle} />
-        <Sidebar
-          mobileOpen={mobileOpen}
-          isMobile={isMobile}
-          onClose={handleDrawerToggle}
-        />
-        <ContentContainer $isMobile={isMobile}>
-          <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="work" element={<Work />} />
-            <Route path="hobbies" element={<Hobbies />} />
-            <Route path="about" element={<About />} />
-          </Routes>
-        </ContentContainer>
-        <BottomBar isDarkTheme={isDarkTheme} />
-      </ThemeProvider>
+      <QueryClientProvider client={itemsQueryClient}>
+        <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
+          <CssBaseline />
+          <TopBar onClick={handleDrawerToggle} />
+          <Sidebar
+            mobileOpen={mobileOpen}
+            isMobile={isMobile}
+            onClose={handleDrawerToggle}
+          />
+          <ContentContainer $isMobile={isMobile}>
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="work" element={<Work />} />
+              <Route path="hobbies" element={<Hobbies />} />
+              <Route path="about" element={<About />} />
+            </Routes>
+          </ContentContainer>
+          <BottomBar isDarkTheme={isDarkTheme} />
+        </ThemeProvider>
+      </QueryClientProvider>
     </div>
   );
 }
