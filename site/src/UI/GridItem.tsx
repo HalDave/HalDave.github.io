@@ -4,7 +4,6 @@ import {
   CardContent,
   CardHeader,
   CardMedia,
-  CardActions,
   Chip,
   Grid,
   Typography,
