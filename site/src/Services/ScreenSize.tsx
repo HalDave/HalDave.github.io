@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
+const minScreenWidth = 600;
 
 const useScreenSize = () => {
   const [screenSize, setScreenSize] = useState({
@@ -14,15 +15,18 @@ const useScreenSize = () => {
       });
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     // Clean up the event listener when the component unmounts
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
-  return screenSize;
+  return {
+    isMobile: screenSize.width < minScreenWidth,
+    isDesktop: screenSize.width >= minScreenWidth,
+  };
 };
 
 export default useScreenSize;

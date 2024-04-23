@@ -14,8 +14,6 @@ import styled from "@emotion/styled";
 import useScreenSize from "./Services/ScreenSize";
 import BottomBar from "./UI/BottomBar";
 
-const minScreenWidth = 600;
-
 interface ContentContainerProps {
   $isMobile?: boolean;
 }
@@ -34,9 +32,8 @@ const lightTheme = createTheme({
 
 function App() {
   const isDarkTheme = useThemeDetector();
-  const screenSize = useScreenSize();
+  const { isMobile } = useScreenSize();
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  const isMobile = screenSize.width < minScreenWidth;
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
