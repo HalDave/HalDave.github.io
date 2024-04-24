@@ -44,14 +44,13 @@ const GridItem = ({ item }: { item: ItemProps }) => {
                 height: "128px",
                 overflow: "hidden",
                 textOverflow: "ellipsis",
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
               }}
             >
               <Typography variant="body1">{item.title}</Typography>
-              <Chip
-                sx={{ position: "absolute", bottom: "0" }}
-                icon={<StarBorderIcon />}
-                label={item.rating}
-              />
+              <Chip icon={<StarBorderIcon />} label={item.rating} />
             </CardContent>
           </Grid>
         </Grid>
