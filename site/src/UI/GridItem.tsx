@@ -31,8 +31,8 @@ const GridItem = ({ item }: { item: ItemProps }) => {
             <CardMedia
               component="img"
               height="128"
-              image={item.data.image}
-              alt={item.data.title}
+              image={item.image}
+              alt={item.title}
               sx={{ objectFit: "contain" }}
             />
           </Grid>
@@ -46,11 +46,11 @@ const GridItem = ({ item }: { item: ItemProps }) => {
                 textOverflow: "ellipsis",
               }}
             >
-              <Typography variant="body1">{item.data.title}</Typography>
+              <Typography variant="body1">{item.title}</Typography>
               <Chip
                 sx={{ position: "absolute", bottom: "0" }}
                 icon={<StarBorderIcon />}
-                label={item.data.rating}
+                label={item.rating}
               />
             </CardContent>
           </Grid>
@@ -59,7 +59,7 @@ const GridItem = ({ item }: { item: ItemProps }) => {
       <Dialog open={expanded} onClose={handleExpandClick} fullScreen={isMobile}>
         <Card sx={{ height: "100%" }}>
           <CardHeader
-            title={item.data.title}
+            title={item.title}
             action={
               <IconButton aria-label="settings" onClick={handleExpandClick}>
                 <Close />
@@ -69,12 +69,12 @@ const GridItem = ({ item }: { item: ItemProps }) => {
           <CardMedia
             component="img"
             height="640"
-            image={item.data.image}
-            alt={item.data.title}
+            image={item.image}
+            alt={item.title}
             sx={{ objectFit: "contain" }}
           />
           <CardContent>
-            <Typography variant="body1">{item.data.opinion}</Typography>
+            <Typography variant="body1">{item.opinion}</Typography>
           </CardContent>
         </Card>
       </Dialog>

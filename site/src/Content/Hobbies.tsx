@@ -2,48 +2,46 @@ import React, { useEffect, useState } from "react";
 import { Grid } from "@mui/material";
 import GridItem from "../UI/GridItem";
 import { useItems } from "../Services/hooks/useItems";
+import { compareItemsByOrder } from "../Types/types";
 
 const Hobbies = () => {
-  const { data: dataBooks } = useItems("Books");
-  const { data: dataMovies } = useItems("Movies");
-  const [books, setBooks] = useState([]);
-  const [movies, setMovies] = useState([]);
+  const { data } = useItems("Hobbies");
+  const [itemsBySubtype, setItemsBySubtype] = useState({});
 
   useEffect(() => {
-    setBooks(dataBooks);
-  }, [dataBooks]);
+    const subtypes = [
+      ...new Set(data?.map((item: any) => item.subtype)),
+    ] as string[];
+    const itemsBySubtype = subtypes.reduce((acc: any, subtype: string) => {
+      acc[subtype] = data?.filter((item: any) => item.subtype === subtype);
+      return acc;
+    }, {});
+    setItemsBySubtype(itemsBySubtype);
+  }, [data]);
 
-  useEffect(() => {
-    setMovies(dataMovies);
-  }, [dataMovies]);
-
+  console.log(itemsBySubtype);
   return (
     <div>
       <h1>Hobbies</h1>
-      <h2>Books</h2>
-      <Grid
-        container
-        columnSpacing={1}
-        direction="row"
-        alignItems="center"
-        justifyContent="center"
-        sx={{ paddingRight: 6, paddingLeft: 6 }}
-      >
-        {books &&
-          books.map((item: any) => <GridItem key={item.id} item={item} />)}
-      </Grid>
-      <h2>Movies</h2>
-      <Grid
-        container
-        columnSpacing={1}
-        direction="row"
-        alignItems="center"
-        justifyContent="center"
-        sx={{ paddingRight: 6, paddingLeft: 6 }}
-      >
-        {movies &&
-          movies.map((item: any) => <GridItem key={item.id} item={item} />)}
-      </Grid>
+      {Object.entries(itemsBySubtype).map(
+        ([subtype, items]: [string, unknown]) => (
+          <div key={subtype}>
+            <h2>{subtype}</h2>
+            <Grid
+              container
+              columnSpacing={1}
+              direction="row"
+              alignItems="center"
+              justifyContent="center"
+              sx={{ paddingRight: 6, paddingLeft: 6 }}
+            >
+              {(items as any[]).sort(compareItemsByOrder).map((item: any) => (
+                <GridItem key={item.id} item={item} />
+              ))}
+            </Grid>
+          </div>
+        )
+      )}
     </div>
   );
 };
