@@ -31,8 +31,8 @@ const Hobbies = () => {
               container
               columnSpacing={1}
               direction="row"
-              alignItems="center"
-              justifyContent="center"
+              alignItems="left"
+              justifyContent="left"
               sx={{ paddingRight: 6, paddingLeft: 6 }}
             >
               {(items as any[]).sort(compareItemsByOrder).map((item: any) => (
